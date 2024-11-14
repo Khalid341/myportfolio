@@ -21,7 +21,7 @@ a {
 .header {
   background-color: #444;
   color: #D6D6D6;
-  padding: 10px 0; /* Reduced padding */
+  padding: 10px 0;
   position: fixed;
   top: 0;
   width: 100%;
@@ -34,7 +34,7 @@ a {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 10px; /* Reduced padding */
+  padding: 0 10px;
 }
 
 .header-logo {
@@ -43,12 +43,12 @@ a {
 }
 
 .header-logo img {
-  height: 40px; /* Reduced logo height */
+  height: 40px;
   margin-right: 10px;
 }
 
 .header-logo a {
-  font-size: 1.5rem; /* Reduced font size */
+  font-size: 1.5rem;
   font-weight: bold;
   color: #FFD100;
 }
@@ -56,14 +56,14 @@ a {
 .navbar ul {
   display: flex;
   list-style: none;
-  gap: 15px; /* Reduced gap */
+  gap: 15px;
 }
 
 .navbar a {
   color: #D6D6D6;
   font-weight: 500;
   transition: color 0.3s;
-  font-size: 0.9rem; /* Reduced font size */
+  font-size: 0.9rem;
 }
 
 .navbar a:hover {
@@ -335,7 +335,7 @@ a {
 }
 
 .footer-link:hover {
-  color: #FFD100; /* Adjust highlight color */
+  color: #FFD100;
 }
 
 .footer-copyright {
@@ -375,7 +375,6 @@ a {
 }
 
 .skills-container div {
-  /* background-color: #353333; */
   padding: 15px 20px;
   border-radius: 5px;
   color: #FFD100;
@@ -390,9 +389,6 @@ a {
   margin-bottom: 10px;
 }
 
-
-
-
 /* Hover Animation Styles for Skills and About Sections */
 .skills div, .skills-container div {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -400,18 +396,18 @@ a {
 
 .skills div:hover, .skills-container div:hover {
   transform: scale(1.1);
-  box-shadow: 0px 4px 15px rgba(255, 221, 0, 0.6); /* Optional shadow effect */
+  box-shadow: 0px 4px 15px rgba(255, 221, 0, 0.6);
 }
 
 /* Additional styling for icons */
 .icon {
-  transition: transform 0.3s
+  transition: transform 0.3s;
 }
 
 .skills div:hover .icon, .skills-container div:hover .icon {
-  transform: scale(1.2); /* Slightly larger icon on hover */
+  transform: scale(1.2);
 }
- 
+
 /* Form Error */
 .form-error {
   color: red;
