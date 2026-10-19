@@ -1,1 +1,922 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="./logo1.png"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="./logo192.png"/><link rel="manifest" href="./manifest.json"/><title>Khalid Portfolio</title><script defer="defer" src="/myportfolio/static/js/main.0a11f9c5.js"></script><link href="/myportfolio/static/css/main.7a00601d.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Khalid Saud Alharbi — Software Engineer | Full-Stack .NET & Flutter</title>
+<meta name="description" content="Portfolio of Khalid Saud Alharbi — Software Engineer specialized in Full-Stack .NET Enterprise Engineering and Cross-Platform Mobile (Flutter). First-Class Honors, Saudi Arabia." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3EK%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+/* ============ Design tokens ============ */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#060911; --bg2:#0B1120; --glass:rgba(17,24,39,.75);
+  --border:rgba(255,255,255,.08); --text:#E5EAF3; --muted:#8B97AC;
+  --emerald:#10B981; --cyan:#06B6D4; --indigo:#6366F1;
+  --grad:linear-gradient(120deg,#10B981,#06B6D4 55%,#6366F1);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.65;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(900px 520px at 88% -8%,rgba(99,102,241,.13),transparent 60%),
+             radial-gradient(760px 420px at -8% 34%,rgba(6,182,212,.09),transparent 60%),
+             radial-gradient(600px 380px at 50% 115%,rgba(16,185,129,.07),transparent 60%)}
+html[lang="ar"] body{font-family:'Cairo',system-ui,sans-serif}
+html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3,html[lang="ar"] h4{font-family:'Cairo',sans-serif}
+h1,h2,h3,h4{font-family:'Space Grotesk','Cairo',sans-serif;line-height:1.22;font-weight:700}
+.mono,code,.term,pre,.tag,.p-cat,.filter,.chip{font-family:'JetBrains Mono',monospace}
+a{color:inherit;text-decoration:none}
+::selection{background:rgba(16,185,129,.35)}
+#spotlight{position:fixed;inset:0;pointer-events:none;z-index:1;
+  background:radial-gradient(520px circle at var(--mx,-999px) var(--my,-999px),rgba(16,185,129,.07),transparent 65%)}
+/* ============ Nav ============ */
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(6,9,17,.72);border-bottom:1px solid var(--border)}
+.nav-in{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:13px 22px;position:relative}
+.logo{font-family:'Space Grotesk','Cairo',sans-serif;font-weight:700;font-size:1.06rem;letter-spacing:.4px;white-space:nowrap}
+.logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav-links{display:flex;gap:4px;margin-inline-start:auto;align-items:center;flex-wrap:wrap}
+.nav-links a{padding:8px 12px;border-radius:9px;font-size:.9rem;color:var(--muted);transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--text);background:rgba(255,255,255,.05)}
+.lang-btn{border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--text);padding:7px 15px;border-radius:999px;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:.8rem;transition:.25s;margin-inline-start:8px}
+.lang-btn:hover{border-color:rgba(16,185,129,.6);box-shadow:0 0 16px rgba(16,185,129,.18)}
+.menu-btn{display:none;background:none;border:1px solid var(--border);color:var(--text);border-radius:9px;padding:7px 12px;cursor:pointer;font-size:1rem;margin-inline-start:auto}
+/* ============ Layout / shared ============ */
+section{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:82px 22px}
+.sec-head{margin-bottom:36px}
+.sec-tag{color:var(--cyan);font-family:'JetBrains Mono',monospace;font-size:.76rem;letter-spacing:.24em;text-transform:uppercase}
+.sec-head h2{font-size:clamp(1.7rem,3.4vw,2.45rem);margin-top:9px}
+.sec-sub{color:var(--muted);margin-top:10px;max-width:620px}
+.glass{background:var(--glass);border:1px solid var(--border);border-radius:18px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.tilt{transform-style:preserve-3d;will-change:transform}
+.btn{display:inline-flex;gap:8px;align-items:center;justify-content:center;padding:12px 20px;border-radius:12px;font-weight:600;font-size:.94rem;cursor:pointer;border:1px solid transparent;transition:transform .25s,box-shadow .25s,border-color .25s;font-family:'Inter','Cairo',sans-serif}
+.btn-primary{background:var(--grad);color:#04121b;box-shadow:0 8px 30px rgba(16,185,129,.22)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 13px 36px rgba(6,182,212,.33)}
+.btn-ghost{border-color:var(--border);background:rgba(255,255,255,.03);color:var(--text)}
+.btn-ghost:hover{border-color:rgba(99,102,241,.6);transform:translateY(-2px)}
+.tag{display:inline-block;font-size:.74rem;padding:5px 11px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:#C3CDDE}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+/* ============ Hero ============ */
+.hero{display:grid;grid-template-columns:1.03fr .97fr;gap:44px;align-items:center;min-height:86vh;padding-top:34px}
+.badge-honor{display:inline-flex;gap:8px;align-items:center;padding:7px 15px;border:1px solid rgba(16,185,129,.35);background:rgba(16,185,129,.08);color:#7EE7C5;border-radius:999px;font-size:.82rem;font-weight:600}
+.badge-honor::before{content:"★";color:#FBBF24;font-size:.8rem}
+.hero h1{font-size:clamp(2.2rem,5vw,3.5rem);margin:20px 0 12px;letter-spacing:-.5px}
+.hero h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .role{font-family:'JetBrains Mono',monospace;color:var(--cyan);font-size:1rem;font-weight:600}
+.hero .loc{color:var(--muted);margin-top:12px;font-size:.95rem}
+.hero .lead{color:#B9C4D6;margin-top:16px;max-width:520px;font-size:1rem}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero-metrics{display:flex;gap:30px;margin-top:36px;flex-wrap:wrap}
+.metric b{font-family:'JetBrains Mono',monospace;font-size:1.4rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
+.metric span{color:var(--muted);font-size:.8rem}
+/* ============ Terminal ============ */
+.term-wrap{position:relative}
+.term{background:rgba(4,7,14,.93);border:1px solid var(--border);border-radius:16px;box-shadow:0 32px 90px rgba(0,0,0,.6);overflow:hidden;backdrop-filter:blur(14px)}
+.term-bar{display:flex;align-items:center;gap:8px;padding:11px 14px;background:rgba(255,255,255,.04);border-bottom:1px solid var(--border);cursor:grab;user-select:none;touch-action:none}
+.term-bar:active{cursor:grabbing}
+.dot{width:11px;height:11px;border-radius:50%}
+.d1{background:#FF5F57}.d2{background:#FEBC2E}.d3{background:#28C840}
+.term-title{margin-inline-start:8px;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--muted)}
+.term-actions{margin-inline-start:auto;display:flex;gap:6px}
+.term-actions button{background:none;border:1px solid var(--border);color:var(--muted);min-width:26px;height:24px;border-radius:7px;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:.78rem;line-height:1;transition:.2s}
+.term-actions button:hover{color:var(--text);border-color:rgba(6,182,212,.5)}
+.term-body{padding:16px 18px;height:292px;overflow-y:auto;font-family:'JetBrains Mono',monospace;font-size:.82rem;line-height:1.8;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.15) transparent}
+.term-body p{white-space:pre-wrap;word-break:break-word}
+.t-out{color:#B7C3D8}.t-cmd{color:var(--emerald)}.t-hi{color:var(--cyan)}.t-ind{color:#A5B4FC}.t-warn{color:#FBBF24}
+.term-input-row{display:flex;gap:8px;border-top:1px solid var(--border);padding:10px 14px;font-family:'JetBrains Mono',monospace;background:rgba(4,7,14,.6)}
+.prompt{color:var(--emerald);user-select:none}
+.term-input{flex:1;background:none;border:none;outline:none;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:.85rem}
+.term-chips{display:flex;gap:7px;flex-wrap:wrap;padding:0 14px 13px;background:rgba(4,7,14,.93)}
+.chip{font-size:.71rem;padding:4px 10px;border:1px solid rgba(6,182,212,.35);color:#7DD3E8;border-radius:999px;background:rgba(6,182,212,.07);cursor:pointer;transition:.2s}
+.chip:hover{background:rgba(6,182,212,.2);transform:translateY(-1px)}
+.term.collapsed .term-body,.term.collapsed .term-input-row,.term.collapsed .term-chips{display:none}
+/* ============ About / Edu / Certs ============ */
+.about-p{font-size:1.05rem;color:#C6D0E0;max-width:840px}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:26px}
+.edu-card{padding:22px}
+.edu-card .date{font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--cyan);letter-spacing:.06em}
+.edu-card h3{font-size:1.06rem;margin:9px 0 5px;color:#fff}
+.edu-card p{color:var(--muted);font-size:.9rem}
+.gpa{display:inline-block;margin-top:11px;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#7EE7C5;background:rgba(16,185,129,.1);padding:4px 11px;border-radius:8px;border:1px solid rgba(16,185,129,.3)}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:13px;margin-top:20px}
+.cert{display:flex;gap:13px;align-items:flex-start;padding:17px;transition:transform .3s,border-color .3s}
+.cert:hover{transform:translateY(-3px);border-color:rgba(6,182,212,.4)}
+.cert .ic{font-size:1.35rem;line-height:1}
+.cert b{font-size:.92rem;display:block}
+.cert span{color:var(--muted);font-size:.79rem}
+/* ============ Skills ============ */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(295px,1fr));gap:17px}
+.skill-card{padding:22px;transition:transform .3s,border-color .3s}
+.skill-card:hover{border-color:rgba(16,185,129,.4);transform:translateY(-4px)}
+.skill-card h3{font-size:1rem;margin-bottom:13px;color:#fff}
+.skill-card h3::before{content:"◆";color:var(--emerald);font-size:.68rem;margin-inline-end:8px}
+.skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+/* ============ Timeline ============ */
+.timeline{position:relative;padding-inline-start:28px;margin-top:8px}
+.timeline::before{content:"";position:absolute;inset-inline-start:6px;top:8px;bottom:8px;width:2px;background:linear-gradient(#10B981,#06B6D4,#6366F1);opacity:.45;border-radius:2px}
+.tl-item{position:relative;padding-block:0 30px}
+.tl-item::before{content:"";position:absolute;inset-inline-start:-28px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--bg2);border:2px solid var(--emerald);box-shadow:0 0 12px rgba(16,185,129,.75)}
+.tl-item .date{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--cyan)}
+.tl-item h3{font-size:1.12rem;margin:7px 0 3px;color:#fff}
+.tl-item .co{color:#7EE7C5;font-weight:600;font-size:.92rem;margin-bottom:9px}
+.tl-item ul{list-style:none}
+.tl-item li{color:var(--muted);font-size:.92rem;padding-inline-start:18px;position:relative;margin-bottom:6px}
+.tl-item li::before{content:"▹";position:absolute;inset-inline-start:0;color:var(--indigo)}
+/* ============ Projects ============ */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.filter{padding:9px 17px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--muted);cursor:pointer;font-size:.8rem;font-weight:600;transition:.25s}
+.filter.active{background:var(--grad);color:#04121b;border-color:transparent;box-shadow:0 8px 26px rgba(6,182,212,.28)}
+.filter:hover:not(.active){border-color:rgba(6,182,212,.5);color:var(--text)}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:20px;transition:opacity .18s ease,transform .18s ease}
+.proj-grid.filtering{opacity:0;transform:scale(.965)}
+.proj-card{padding:26px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s,opacity .7s ease}
+.proj-card::after{content:"";position:absolute;top:-46%;inset-inline-end:-28%;width:230px;height:230px;background:radial-gradient(circle,rgba(99,102,241,.17),transparent 65%);pointer-events:none;transition:.4s}
+.proj-card:hover{border-color:rgba(16,185,129,.45)}
+.p-cat{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan)}
+.proj-card h3{margin:11px 0 5px;font-size:1.32rem}
+.p-sub{color:#7EE7C5;font-size:.86rem;font-weight:600;margin-bottom:11px}
+.p-desc{color:var(--muted);font-size:.92rem;min-height:70px}
+.p-stack{display:flex;flex-wrap:wrap;gap:7px;margin:15px 0 19px}
+.p-actions{display:flex;gap:10px;flex-wrap:wrap}
+.p-actions .btn{padding:9px 15px;font-size:.84rem}
+/* ============ Modal ============ */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(3,5,10,.82);backdrop-filter:blur(9px)}
+.modal.open{display:flex}
+.modal-box{max-width:780px;width:100%;max-height:87vh;overflow-y:auto;padding:32px;border-radius:20px;position:relative;scrollbar-width:thin}
+.modal-close{position:absolute;top:15px;inset-inline-end:15px;background:rgba(255,255,255,.06);border:1px solid var(--border);color:var(--text);width:35px;height:35px;border-radius:11px;cursor:pointer;font-size:1.05rem;transition:.2s}
+.modal-close:hover{background:rgba(255,90,87,.18);border-color:rgba(255,90,87,.5)}
+.modal-box h2{font-size:1.55rem;margin-bottom:4px;padding-inline-end:40px}
+.modal-box .m-sub{color:#7EE7C5;font-weight:600;margin-bottom:6px}
+.modal-box .m-cat{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan)}
+.modal h4{margin:22px 0 11px;font-size:.85rem;color:var(--cyan);font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.flow{display:flex;flex-direction:column;gap:22px}
+.flow-step{display:flex;gap:12px;align-items:flex-start;padding:13px 15px;border:1px solid var(--border);border-radius:13px;background:rgba(255,255,255,.03);position:relative}
+.flow-step:not(:last-child)::after{content:"▼";position:absolute;bottom:-18px;inset-inline-start:20px;color:var(--cyan);font-size:.72rem}
+.flow-num{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#04121b;background:var(--grad);border-radius:8px;padding:3px 8px;height:fit-content;font-weight:700;white-space:nowrap}
+.flow-step span.txt{font-size:.9rem;color:#C6D0E0}
+.layers{display:flex;flex-direction:column;gap:9px}
+.layer{padding:11px 15px;border:1px solid var(--border);border-radius:11px;background:rgba(99,102,241,.06);font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#C3CDDE;display:flex;gap:10px;align-items:center}
+.layer::before{content:"";width:9px;height:9px;border-radius:3px;background:var(--grad);flex:none}
+.sec-list{list-style:none}
+.sec-list li{padding:9px 14px;margin-bottom:8px;border:1px solid rgba(16,185,129,.22);border-radius:11px;background:rgba(16,185,129,.05);font-size:.9rem;color:#C6D0E0;position:relative;padding-inline-start:34px}
+.sec-list li::before{content:"🛡";position:absolute;inset-inline-start:11px;font-size:.8rem}
+/* ============ Contact ============ */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:6px}
+.c-card{padding:24px;text-align:center;transition:transform .3s,border-color .3s}
+.c-card:hover{transform:translateY(-4px);border-color:rgba(6,182,212,.45)}
+.c-card .ic{font-size:1.6rem;display:block;margin-bottom:6px}
+.c-card h4{font-size:.74rem;color:var(--muted);margin-bottom:7px;letter-spacing:.12em;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
+.c-card .val{font-weight:600;word-break:break-all;font-size:.95rem}
+.c-card .val a:hover{color:var(--cyan)}
+.c-card .btn{margin-top:13px;padding:9px 16px;font-size:.84rem}
+/* ============ Toast / Footer ============ */
+#toast{position:fixed;bottom:28px;left:50%;transform:translate(-50%,90px);z-index:200;background:linear-gradient(120deg,#064E3B,#065F46);border:1px solid rgba(16,185,129,.55);color:#A7F3D0;padding:13px 24px;border-radius:13px;font-size:.9rem;font-weight:600;opacity:0;transition:.35s cubic-bezier(.2,.8,.3,1);box-shadow:0 16px 46px rgba(0,0,0,.55);pointer-events:none;font-family:'Inter','Cairo',sans-serif}
+#toast.show{transform:translate(-50%,0);opacity:1}
+footer{border-top:1px solid var(--border);padding:30px 22px;text-align:center;color:var(--muted);font-size:.85rem;position:relative;z-index:2}
+footer a{color:var(--cyan)}
+footer a:hover{text-decoration:underline}
+/* ============ Responsive ============ */
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr;min-height:auto;padding-top:26px;gap:36px}
+  section{padding:64px 20px}
+}
+@media (max-width:780px){
+  .nav-links{position:absolute;top:calc(100% + 9px);inset-inline:16px;flex-direction:column;align-items:stretch;background:rgba(8,12,22,.98);border:1px solid var(--border);border-radius:15px;padding:12px;display:none;box-shadow:0 22px 60px rgba(0,0,0,.55);margin:0}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:11px 13px}
+  .lang-btn{margin:6px 0 0;width:100%}
+  .menu-btn{display:block}
+  .hero-metrics{gap:18px}
+  .term-body{height:250px}
+  .p-desc{min-height:0}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .reveal{opacity:1;transform:none}
+  #spotlight{display:none}
+}
+</style>
+</head>
+<body>
+<div id="spotlight" aria-hidden="true"></div>
+
+<!-- ================= NAV ================= -->
+<nav>
+  <div class="nav-in">
+    <a href="#home" class="logo">Khalid<span>.dev</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#home" data-i18n="nav.home">Home</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#skills" data-i18n="nav.skills">Skills</a>
+      <a href="#experience" data-i18n="nav.exp">Experience</a>
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <button class="lang-btn" id="langBtn" aria-label="Toggle language">عربي</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div>
+    <span class="badge-honor reveal" data-i18n="hero.badge">First-Class Honors (B.Sc. GPA: 4.67 / 5.0) • Tuwaiq Academy Alumni</span>
+    <h1 class="reveal" style="transition-delay:.08s"><span class="grad">Khalid Saud Alharbi</span></h1>
+    <p class="role reveal" style="transition-delay:.16s" data-i18n="hero.role">Software Engineer | Full-Stack .NET & Cross-Platform Mobile Specialist</p>
+    <p class="loc reveal" style="transition-delay:.22s" data-i18n="hero.loc">Saudi Arabia — Open to On-site, Hybrid & Remote roles</p>
+    <p class="lead reveal" style="transition-delay:.3s" data-i18n="hero.lead">I engineer enterprise-grade .NET platforms and cross-platform Flutter apps — real-time systems with SignalR, offline-first mobile architecture, and clean, tested code.</p>
+    <div class="hero-cta reveal" style="transition-delay:.38s">
+      <a href="#projects" class="btn btn-primary" data-i18n="cta.projects">View Projects</a>
+      <a href="resume.pdf" download class="btn btn-ghost" data-i18n="cta.resume">Download Resume</a>
+      <a href="#contact" class="btn btn-ghost" data-i18n="cta.contact">Get in Touch</a>
+    </div>
+    <div class="hero-metrics reveal" style="transition-delay:.46s">
+      <div class="metric"><b>4.67</b><span data-i18n="met.gpa">B.Sc. First-Class GPA (/5.0)</span></div>
+      <div class="metric"><b>25+</b><span data-i18n="met.repos">Public Repositories</span></div>
+      <div class="metric"><b>3</b><span data-i18n="met.flag">Flagship Products</span></div>
+      <div class="metric"><b>2026</b><span data-i18n="met.tuwaiq">Tuwaiq Academy Alumni</span></div>
+    </div>
+  </div>
+
+  <!-- Terminal -->
+  <div class="term-wrap reveal" style="transition-delay:.3s">
+    <div class="term" id="term">
+      <div class="term-bar" id="termBar">
+        <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+        <span class="term-title">khalid@portfolio: ~</span>
+        <div class="term-actions">
+          <button id="termCollapse" aria-label="Collapse">–</button>
+        </div>
+      </div>
+      <div class="term-body" id="termOut"></div>
+      <form class="term-input-row" id="termForm" autocomplete="off">
+        <span class="prompt">$</span>
+        <input class="term-input" id="termInput" type="text" spellcheck="false" placeholder="type a command…" data-i18n-ph="term.ph" />
+      </form>
+      <div class="term-chips">
+        <button class="chip" data-cmd="help">help</button>
+        <button class="chip" data-cmd="whoami">whoami</button>
+        <button class="chip" data-cmd="stack">stack</button>
+        <button class="chip" data-cmd="projects">projects</button>
+        <button class="chip" data-cmd="contact">contact</button>
+        <button class="chip" data-cmd="clear">clear</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="sec-head reveal">
+    <span class="sec-tag">01 — <span data-i18n="about.tag">About</span></span>
+    <h2 data-i18n="about.title">About Me</h2>
+  </div>
+  <p class="about-p reveal" data-i18n="about.p">Securing a full-time Software Engineer position where my knowledge, skills, and abilities are effectively utilized — building enterprise .NET systems and cross-platform mobile apps. First-Class Honors graduate, open to on-site, hybrid &amp; remote roles.</p>
+
+  <div class="edu-grid" id="eduGrid"></div>
+
+  <div class="sec-head reveal" style="margin:44px 0 0">
+    <h2 style="font-size:1.35rem" data-i18n="certs.title">Certifications</h2>
+  </div>
+  <div class="certs-grid" id="certsGrid"></div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+  <div class="sec-head reveal">
+    <span class="sec-tag">02 — <span data-i18n="skills.tag">Skills</span></span>
+    <h2 data-i18n="skills.title">Technical Skills Matrix</h2>
+  </div>
+  <div class="skills-grid" id="skillsGrid"></div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <div class="sec-head reveal">
+    <span class="sec-tag">03 — <span data-i18n="exp.tag">Experience</span></span>
+    <h2 data-i18n="exp.title">Professional Timeline</h2>
+  </div>
+  <div class="timeline" id="expTimeline"></div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <div class="sec-head reveal">
+    <span class="sec-tag">04 — <span data-i18n="proj.tag">Projects</span></span>
+    <h2 data-i18n="proj.title">Featured Work</h2>
+    <p class="sec-sub" data-i18n="proj.sub">Filter by domain — open the architecture inspector on every flagship product.</p>
+  </div>
+  <div class="filters reveal" id="filters">
+    <button class="filter active" data-filter="all" data-i18n="f.all">[ All Work ]</button>
+    <button class="filter" data-filter="dotnet" data-i18n="f.dotnet">[ Full-Stack .NET ]</button>
+    <button class="filter" data-filter="mobile" data-i18n="f.mobile">[ Mobile (Flutter) ]</button>
+    <button class="filter" data-filter="ui" data-i18n="f.ui">[ UI & Web ]</button>
+  </div>
+  <div class="proj-grid" id="projGrid"></div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="sec-head reveal">
+    <span class="sec-tag">05 — <span data-i18n="contact.tag">Contact</span></span>
+    <h2 data-i18n="contact.title">Get in Touch</h2>
+    <p class="sec-sub" data-i18n="contact.lead">Have a role or a project in mind? Copy my email or reach out directly.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="c-card glass tilt reveal">
+      <span class="ic">✉️</span>
+      <h4 data-i18n="c.email">Email</h4>
+      <div class="val">alhrbi341@gmail.com</div>
+      <button class="btn btn-primary copy-btn" id="copyEmailBtn" data-i18n="c.copy">Copy Email</button>
+    </div>
+    <div class="c-card glass tilt reveal" style="transition-delay:.08s">
+      <span class="ic">📱</span>
+      <h4 data-i18n="c.phone">Phone</h4>
+      <div class="val"><a href="tel:+966510038905">+966 510 038 905</a></div>
+    </div>
+    <div class="c-card glass tilt reveal" style="transition-delay:.16s">
+      <span class="ic">🐙</span>
+      <h4>GitHub</h4>
+      <div class="val"><a href="https://github.com/Khalid341" target="_blank" rel="noopener">github.com/Khalid341</a></div>
+    </div>
+    <div class="c-card glass tilt reveal" style="transition-delay:.24s">
+      <span class="ic">💼</span>
+      <h4>LinkedIn</h4>
+      <div class="val"><a href="https://www.linkedin.com/in/khalid-alharbi-91533117b" target="_blank" rel="noopener">khalid-alharbi</a></div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:34px" class="reveal">
+    <a href="resume.pdf" download class="btn btn-primary" data-i18n="cta.resume">Download Resume</a>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <p><span data-i18n="footer.text">© 2026 Khalid Saud Alharbi — engineered with HTML, CSS & JavaScript.</span>
+  <a href="https://github.com/Khalid341" target="_blank" rel="noopener">GitHub</a> ·
+  <a href="https://www.linkedin.com/in/khalid-alharbi-91533117b" target="_blank" rel="noopener">LinkedIn</a></p>
+</footer>
+
+<!-- ================= MODAL ================= -->
+<div class="modal" id="archModal" role="dialog" aria-modal="true">
+  <div class="modal-box glass" id="modalBox">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <span class="m-cat" id="mCat"></span>
+    <h2 id="mTitle"></h2>
+    <div class="m-sub" id="mSub"></div>
+    <h4 data-i18n="m.layers">System Layers</h4>
+    <div class="layers" id="mLayers"></div>
+    <h4 data-i18n="m.flow">Data Flow</h4>
+    <div class="flow" id="mFlow"></div>
+    <h4 data-i18n="m.security">Security</h4>
+    <ul class="sec-list" id="mSecurity"></ul>
+    <h4 data-i18n="m.stack">Tech Stack</h4>
+    <div class="p-stack" id="mStack"></div>
+  </div>
+</div>
+
+<div id="toast" role="status"></div>
+
+<script>
+/* =========================================================
+   i18n dictionary
+========================================================= */
+var state = { lang: 'en', filter: 'all' };
+
+var I18N = {
+  'nav.home':      { en: 'Home',            ar: 'الرئيسية' },
+  'nav.about':     { en: 'About',           ar: 'عني' },
+  'nav.skills':    { en: 'Skills',          ar: 'المهارات' },
+  'nav.exp':       { en: 'Experience',      ar: 'الخبرة' },
+  'nav.projects':  { en: 'Projects',        ar: 'المشاريع' },
+  'nav.contact':   { en: 'Contact',         ar: 'تواصل' },
+  'hero.badge':    { en: 'First-Class Honors (B.Sc. GPA: 4.67 / 5.0) • Tuwaiq Academy Alumni', ar: 'تقدير الشرف الأول (بكالوريوس 4.67 / 5.0) • خريج أكاديمية طويق' },
+  'hero.role':     { en: 'Software Engineer | Full-Stack .NET & Cross-Platform Mobile Specialist', ar: 'مهندس برمجيات | متخصص .NET متكامل والتطبيقات متعددة المنصات' },
+  'hero.loc':      { en: 'Saudi Arabia — Open to On-site, Hybrid & Remote roles', ar: 'السعودية — متاح للعمل الميداني أو الهجين أو عن بُعد' },
+  'hero.lead':     { en: 'I engineer enterprise-grade .NET platforms and cross-platform Flutter apps — real-time systems with SignalR, offline-first mobile architecture, and clean, tested code.', ar: 'أبني منصات .NET مؤسسية وتطبيقات Flutter متعددة المنصات — أنظمة لحظية بـ SignalR، وبنية محمولة تعمل دون اتصال، ونظيف ومُختبَر.' },
+  'cta.projects':  { en: 'View Projects',      ar: 'عرض المشاريع' },
+  'cta.resume':    { en: 'Download Resume',    ar: 'تحميل السيرة الذاتية' },
+  'cta.contact':   { en: 'Get in Touch',       ar: 'تواصل معي' },
+  'met.gpa':       { en: 'B.Sc. First-Class GPA (/5.0)', ar: 'معدل البكالوريوس مع مرتبة الشرف (/5.0)' },
+  'met.repos':     { en: 'Public Repositories', ar: 'مستودعات عامة' },
+  'met.flag':      { en: 'Flagship Products',   ar: 'منتجات رئيسية' },
+  'met.tuwaiq':    { en: 'Tuwaiq Academy Alumni', ar: 'خريج أكاديمية طويق' },
+  'about.tag':     { en: 'About',      ar: 'عني' },
+  'about.title':   { en: 'About Me',   ar: 'نبذة عني' },
+  'about.p':       { en: 'Securing a full-time Software Engineer position where my knowledge, skills, and abilities are effectively utilized — building enterprise .NET systems and cross-platform mobile apps. First-Class Honors graduate, open to on-site, hybrid & remote roles.', ar: 'أسعى لشغل وظيفة مهندس برمجيات بدوام كامل تُوظَّف فيها مهاراتي في بناء أنظمة .NET المؤسسية والتطبيقات متعددة المنصات — خريج بتقدير الشرف الأول، ومتاح للعمل الميداني والهجين وعن بُعد.' },
+  'certs.title':   { en: 'Certifications', ar: 'الشهادات' },
+  'skills.tag':    { en: 'Skills',    ar: 'المهارات' },
+  'skills.title':  { en: 'Technical Skills Matrix', ar: 'مصفوفة المهارات التقنية' },
+  'exp.tag':       { en: 'Experience', ar: 'الخبرة' },
+  'exp.title':     { en: 'Professional Timeline', ar: 'المسيرة المهنية' },
+  'proj.tag':      { en: 'Projects',  ar: 'المشاريع' },
+  'proj.title':    { en: 'Featured Work', ar: 'أعمال مختارة' },
+  'proj.sub':      { en: 'Filter by domain — open the architecture inspector on every flagship product.', ar: 'صفِّ حسب المجال — وافتح فاحص البنية لكل منتج رئيسي.' },
+  'f.all':         { en: '[ All Work ]',        ar: '[ كل الأعمال ]' },
+  'f.dotnet':      { en: '[ Full-Stack .NET ]', ar: '[ دوت نت الكامل ]' },
+  'f.mobile':      { en: '[ Mobile (Flutter) ]',ar: '[ الجوال (Flutter) ]' },
+  'f.ui':          { en: '[ UI & Web ]',        ar: '[ واجهات وويب ]' },
+  'proj.inspect':  { en: 'Inspect Architecture', ar: 'فحص البنية' },
+  'proj.repo':     { en: 'View Repository',     ar: 'عرض المستودع' },
+  'm.layers':      { en: 'System Layers',  ar: 'طبقات النظام' },
+  'm.flow':        { en: 'Data Flow',      ar: 'تدفق البيانات' },
+  'm.security':    { en: 'Security',       ar: 'الأمان' },
+  'm.stack':       { en: 'Tech Stack',     ar: 'التقنيات' },
+  'contact.tag':   { en: 'Contact', ar: 'تواصل' },
+  'contact.title': { en: 'Get in Touch', ar: 'تواصل معي' },
+  'contact.lead':  { en: 'Have a role or a project in mind? Copy my email or reach out directly.', ar: 'لديك فرصة عمل أو مشروع؟ انسخ بريدي أو تواصل مباشرة.' },
+  'c.email':       { en: 'Email',    ar: 'البريد الإلكتروني' },
+  'c.phone':       { en: 'Phone',    ar: 'الجوال' },
+  'c.copy':        { en: 'Copy Email', ar: 'نسخ البريد' },
+  'toast.copied':  { en: 'Email copied to clipboard ✓', ar: 'تم نسخ البريد ✓' },
+  'footer.text':   { en: '© 2026 Khalid Saud Alharbi — engineered with HTML, CSS & JavaScript. ', ar: '© 2026 خالد سعود الحربي — مُطوَّر بـ HTML و CSS و JavaScript. ' },
+  'term.ph':       { en: 'type a command…', ar: 'اكتب أمراً…' },
+  'term.welcome1': { en: 'Khalid Saud Alharbi — Portfolio Terminal v1.0', ar: 'خالد سعود الحربي — طرفية البورتفوليو v1.0' },
+  'term.welcome2': { en: "Type `help` to list commands, or click a shortcut below.", ar: "اكتب `help` لعرض الأوامر، أو اضغط اختصاراً بالأسفل." },
+  'term.help': { en: [
+      'Available commands:',
+      '  help      — list available commands',
+      '  whoami    — engineering persona & credentials',
+      '  stack     — technical stack breakdown',
+      '  projects  — featured projects quick list',
+      '  contact   — direct contact options',
+      '  clear     — clear terminal history'
+    ], ar: [
+      'الأوامر المتاحة:',
+      '  help      — عرض قائمة الأوامر',
+      '  whoami    — هوية المهندس والمؤهلات',
+      '  stack     — تفكيك التقنيات',
+      '  projects  — قائمة المشاريع الرئيسية',
+      '  contact   — خيارات التواصل المباشر',
+      '  clear     — مسح سجل الطرفية'
+    ] },
+  'term.whoami': { en: [
+      'Khalid Saud Alharbi (خالد سعود الحربي)',
+      'Software Engineer | Full-Stack .NET & Cross-Platform Mobile',
+      'First-Class Honors — B.Sc. GPA 4.67/5.0 • Tuwaiq Academy Alumni',
+      'Saudi Arabia — Open to On-site, Hybrid & Remote'
+    ], ar: [
+      'خالد سعود الحربي (Khalid Saud Alharbi)',
+      'مهندس برمجيات | .NET متكامل وتطبيقات متعددة المنصات',
+      'تقدير الشرف الأول — بكالوريوس 4.67/5.0 • خريج أكاديمية طويق',
+      'السعودية — متاح للعمل الميداني والهجين وعن بُعد'
+    ] },
+  'term.stack': { en: [
+      'Backend  : C# · ASP.NET Core MVC · REST APIs · EF Core · SignalR · Identity · LINQ',
+      'Mobile   : Flutter · Dart · Firebase (Auth/Firestore/Functions) · Offline-First',
+      'Frontend : React.js · JavaScript ES6+ · Bootstrap 5 · Tailwind CSS · HTML5/CSS3',
+      'Data     : MS SQL Server · Firebase (me-central2 — Dammam) · Normalization · Indexing',
+      'Practice : SOLID · Clean Architecture · Design Patterns · Agile/Scrum · Testing · Git'
+    ], ar: [
+      'الخلفية : C# · ASP.NET Core MVC · REST APIs · EF Core · SignalR · Identity · LINQ',
+      'الجوال   : Flutter · Dart · Firebase (Auth/Firestore/Functions) · يعمل دون اتصال',
+      'الواجهات: React.js · JavaScript ES6+ · Bootstrap 5 · Tailwind CSS · HTML5/CSS3',
+      'البيانات: MS SQL Server · Firebase (me-central2 — الدمام) · تطبيع · فهارس',
+      'الممارسات: SOLID · Clean Architecture · أنماط التصميم · Agile/Scrum · اختبار · Git'
+    ] },
+  'term.projects': { en: [
+      '1. LinkMe      — Full-Stack .NET   — Real-time recruitment platform → github.com/Khalid341/linkme',
+      '2. SplitFive   — Mobile (Flutter)  — Progressive overload tracker  → github.com/Khalid341/splitfive',
+      '3. Mini-Store  — Full-Stack .NET   — E-commerce engine             → github.com/Khalid341/mini-store',
+      '(Tip: use the Projects filters + "Inspect Architecture" on each flagship.)'
+    ], ar: [
+      '1. LinkMe      — دوت نت الكامل   — منصة توظيف لحظية        → github.com/Khalid341/linkme',
+      '2. SplitFive   — جوال (Flutter)  — متتبع تحميل تدريجي     → github.com/Khalid341/splitfive',
+      '3. Mini-Store  — دوت نت الكامل   — محرك متجر إلكتروني     → github.com/Khalid341/mini-store',
+      '(نصيحة: استخدم فلاتر المشاريع + زر «فحص البنية» في كل منتج رئيسي.)'
+    ] },
+  'term.contact': { en: [
+      'Email   : alhrbi341@gmail.com  (use Copy Email in Contact section)',
+      'Phone   : +966 510 038 905',
+      'GitHub  : github.com/Khalid341',
+      'LinkedIn: linkedin.com/in/khalid-alharbi-91533117b',
+      'Resume  : resume.pdf (Download button in Contact)'
+    ], ar: [
+      'البريد  : alhrbi341@gmail.com  (استخدم زر نسخ البريد في قسم التواصل)',
+      'الجوال  : +966 510 038 905',
+      'GitHub  : github.com/Khalid341',
+      'LinkedIn: linkedin.com/in/khalid-alharbi-91533117b',
+      'السيرة  : resume.pdf (زر التحميل في قسم التواصل)'
+    ] },
+  'term.unknown':  { en: 'command not found', ar: 'أمر غير موجود' },
+  'term.unknown2': { en: "type `help` for the command list.", ar: "اكتب `help` لقائمة الأوامر." }
+};
+
+function t(key){
+  var e = I18N[key];
+  if (!e) return key;
+  return e[state.lang] !== undefined ? e[state.lang] : e.en;
+}
+
+/* =========================================================
+   Data
+========================================================= */
+var EDU = [
+  { date:{en:'Nov 2022',ar:'نوفمبر 2022'},
+    title:{en:'Bachelor of Software Engineering',ar:'بكالوريوس هندسة البرمجيات'},
+    org:{en:'Technical College, Saudi Arabia',ar:'الكلية التقنية، السعودية'},
+    gpa:{en:'GPA: 4.67 / 5.0 — First-Class Honors',ar:'المعدل: 4.67 / 5.0 — تقدير الشرف الأول'} },
+  { date:{en:'2019',ar:'2019'},
+    title:{en:'Diploma in Software Development',ar:'دبلوم تطوير البرمجيات'},
+    org:{en:'Technical College, Saudi Arabia',ar:'الكلية التقنية، السعودية'},
+    gpa:{en:'GPA: 4.54 / 5.0',ar:'المعدل: 4.54 / 5.0'} },
+  { date:{en:'Jul 2026',ar:'يوليو 2026'},
+    title:{en:'Tuwaiq Academy',ar:'أكاديمية طويق'},
+    org:{en:'Intensive Web Application Development — ASP.NET Core MVC',ar:'برنامج مكاثف لتطوير تطبيقات الويب — ASP.NET Core MVC'},
+    gpa:{en:'Intensive program graduate',ar:'خريج برنامج مكاثف'} }
+];
+
+var CERTS = [
+  { ic:'📜', b:{en:'Agile Scrum Foundation',ar:'أساسيات Agile Scrum'},
+    s:{en:'Ministry of Communications & Information Technology (MCIT)',ar:'وزارة الاتصالات وتقنية المعلومات'} },
+  { ic:'🤖', b:{en:'Code Generation & Optimization Using IBM Granite',ar:'توليد وتحسين الكود باستخدام IBM Granite'},
+    s:{en:'IBM',ar:'IBM'} },
+  { ic:'📱', b:{en:'Flutter & Dart Mobile App Development',ar:'تطوير تطبيقات الجوال بـ Flutter و Dart'},
+    s:{en:'Coursera',ar:'Coursera'} },
+  { ic:'🧪', b:{en:'Software Testing & Automated Analysis',ar:'اختبار البرمجيات والتحليل الآلي'},
+    s:{en:'Coursera',ar:'Coursera'} }
+];
+
+var SKILLS = [
+  { title:{en:'Backend & Enterprise .NET',ar:'Backend و.NET المؤسسي'},
+    items:['C#','ASP.NET Core MVC','RESTful Web APIs','Entity Framework Core','SignalR','ASP.NET Identity','LINQ'] },
+  { title:{en:'Mobile Engineering',ar:'هندسة التطبيقات المحمولة'},
+    items:['Flutter','Dart','Firebase Auth','Cloud Firestore','Cloud Functions','Offline-First Sync'] },
+  { title:{en:'Front-End & UI Design',ar:'الواجهات وتصميم UI'},
+    items:['React.js','JavaScript (ES6+)','Bootstrap 5','Tailwind CSS','Responsive Design','HTML5 / CSS3'] },
+  { title:{en:'Databases & Cloud',ar:'قواعد البيانات والسحابة'},
+    items:['MS SQL Server','Firebase (me-central2 — Dammam)','Normalization','Indexing & Query Tuning'] },
+  { title:{en:'Engineering Practices',ar:'ممارسات الهندسة'},
+    items:['SOLID Principles','Clean Architecture','Design Patterns','Agile / Scrum','Unit & Integration Testing','Git / GitHub'] }
+];
+
+var EXPERIENCE = [
+  { role:{en:'Full-Stack Software Engineer (Independent / Reyadi Ventures)',ar:'مهندس برمجيات متكامل (مستقل / Reyadi Ventures)'},
+    date:{en:'Jul 2025 – Sep 2025',ar:'يوليو 2025 – سبتمبر 2025'},
+    bullets:[
+      {en:'Delivered custom software, web, and mobile solutions aligned strictly with client business objectives.',ar:'تطوير حلول برمجية وويب ومحمولة مخصصة تتوافق بدقة مع أهداف العملاء.'},
+      {en:'Managed the complete SDLC from design to testing and deployment.',ar:'إدارة دورة حياة تطوير البرمجيات كاملة من التصميم حتى الاختبار والنشر.'}
+    ] },
+  { role:{en:'Co-Founder & Technical Lead (Maras)',ar:'شريك مؤسس وقائد تقني (Maras)'},
+    date:{en:'Jul 2025 – Sep 2025',ar:'يوليو 2025 – سبتمبر 2025'},
+    bullets:[
+      {en:'Co-founded a platform connecting students and graduates with real-world industry project engagements.',ar:'الإسهام في تأسيس منصة تربط الطلاب والخريجين بمشاريع صناعية حقيقية.'},
+      {en:'Supervised system architecture planning, requirements definition, and timely delivery.',ar:'الإشراف على تخطيط بنية النظام، وتحديد المتطلبات، والتسليم في المواعيد.'}
+    ] },
+  { role:{en:'Software Developer Trainee (Ajja Information Technology Space)',ar:'متدرب مطوّر برمجيات (مساحة آجى لتقنية المعلومات)'},
+    date:{en:'Sep 2024 – Jul 2025',ar:'سبتمبر 2024 – يوليو 2025'},
+    bullets:[
+      {en:'Developed, maintained, and optimized front-end web components using React.js and JavaScript.',ar:'تطوير وصيانة وتحسين مكونات الواجهات باستخدام React.js و JavaScript.'},
+      {en:'Improved application performance through structured debugging and automated testing.',ar:'تحسين أداء التطبيقات عبر تصحيح منهجي واختبار آلي.'}
+    ] },
+  { role:{en:'Technical & Administrative Volunteer (King Faisal Specialist Hospital & Research Centre)',ar:'متطوع تقني وإداري (مستشفى الملك فيصل التخصصي ومركز الأبحاث)'},
+    date:{en:'Aug 2025 – Dec 2025',ar:'أغسطس 2025 – ديسمبر 2025'},
+    bullets:[
+      {en:'Assisted technical and operational workflows within the Radiology Department.',ar:'دعم سير العمل التقني والتشغيلي داخل قسم الأشعة.'}
+    ] }
+];
+
+var PROJECTS = [
+  { id:'linkme', cat:'dotnet', featured:true, repo:'https://github.com/Khalid341/linkme',
+    title:{en:'LinkMe',ar:'LinkMe'},
+    sub:{en:'Real-Time Recruitment & Career Platform',ar:'منصة توظيف ومسارات مهنية لحظية'},
+    desc:{en:'An enterprise recruitment platform bridging skilled job seekers with verified employers across Saudi Arabia.',ar:'منصة توظيف مؤسسية تربط الباحثين عن عمل أصحاب الخبرات بأصحاب العمل الموثّقين في السعودية.'},
+    stack:['C#','ASP.NET Core MVC','SignalR','EF Core','SQL Server','ASP.NET Identity','Bootstrap 5'],
+    layers:{en:['Presentation — Razor Views + Bootstrap 5 responsive UI','Realtime — SignalR NotificationHub (hubs in Hubs/)','Business — Services layer (Email, Notification, ProfileView, File) + ASP.NET Identity','Data — EF Core code-first migrations → MS SQL Server'],
+            ar:['العرض — واجهات Razor + Bootstrap 5 متجاوبة','الزمن الحقيقي — SignalR NotificationHub (في Hubs/)','المنطق — طبقة الخدمات (بريد، إشعارات، مشاهدات ملفات، ملفات) + ASP.NET Identity','البيانات — ترحيلات EF Core code-first ← MS SQL Server']},
+    flow:{en:['Browser (Job Seeker / Employer / Admin) sends requests','Controllers (Account, Employer, JobSeeker, Admin, Notification) handle MVC routing','SignalR Hub pushes real-time messages & notifications to connected clients','Services perform business operations (email, profile views, file uploads)','EF Core queries normalized schema on MS SQL Server (DbSets: Profiles, Notifications, Views)'],
+          ar:['المتصفح (باحث / صاحب عمل / إدارة) يرسل الطلبات','المتحكّمات (Account, Employer, JobSeeker, Admin, Notification) ت معالج توجيه MVC','SignalR Hub يرسل رسائل وإشعارات فورية للعملاء المتصلين','الخدمات تنفيذ عمليات العمل (بريد، مشاهدات ملفات، رفع ملفات)','EF Core يستعلم المخطط المُطبَّع على MS SQL Server (DbSets: ملفات، إشعارات، مشاهدات)']},
+    security:{en:['ASP.NET Identity with role-based authorization (JobSeeker / Employer / Admin)','SecurityHeadersMiddleware — HSTS, X-Frame-Options, CSP and more','Model validation attributes (e.g. SpecialtyValidation) + server-side checks','Code-first migrations keep a normalized, indexed relational schema'],
+              ar:['ASP.NET Identity مع تفويض قائم على الأدوار (باحث / صاحب عمل / إدارة)','SecurityHeadersMiddleware — HSTS و X-Frame-Options و CSP وغيرها','سمات تحقق النماذج (مثل SpecialtyValidation) + فحوصات الخادم','ترحيلات Code-First تحافظ على مخطط علائقي مُطبَّع ومفهرس']} },
+  { id:'splitfive', cat:'mobile', featured:true, repo:'https://github.com/Khalid341/splitfive',
+    title:{en:'SplitFive',ar:'SplitFive'},
+    sub:{en:'Smart Workout Split & Progressive Overload Tracker',ar:'متتبع تمارين ذكي مع تحميل تدريجي'},
+    desc:{en:'Athletic performance tracking for multi-day routines (5-day Push/Pull/Legs splits), weight logging, and progressive overload analytics.',ar:'تتبع أداء رياضي للأنظمة متعددة الأيام (دفع/سحب/أرجل 5 أيام)، تسجيل الأوزان، وتحليلات التحميل التدريجي.'},
+    stack:['Flutter','Dart','Firebase Auth','Cloud Firestore','Analytics','Provider','fl_chart'],
+    layers:{en:['Presentation — Flutter screens (Home, Add Workout, Stats)','State — Provider-driven reactive workout state','Services — database & analytics abstraction','Cloud — Firebase Auth + Firestore synced in Dammam region (me-central2)'],
+            ar:['العرض — شاشات Flutter (الرئيسية، إضافة تمرين، الإحصائيات)','الحالة — حالة تفاعلية عبر Provider','الخدمات — تجريد قاعدة البيانات والتحليلات','السحابة — Firebase Auth + Firestore في منطقة الدمام (me-central2)']},
+    flow:{en:['Athlete logs a workout in the Add Workout screen','Provider updates reactive state across widgets','Services persist locally (offline-first) and queue cloud writes','Firebase Firestore syncs in real time (me-central2, Dammam — low GCC latency)','Stats screen renders progressive-overload charts via fl_chart + Analytics'],
+          ar:['الرياضي يسجل تمرينًا في شاشة إضافة تمرين','Provider يحدّث الحالة التفاعلية عبر الودجات','الخدمات تحفظ محليًا (Offline-first) وتضمّن عمليات السحابة','Firebase Firestore يزامن لحظيًا (me-central2، الدمام — استجابة منخفضة للخليج)','شاشة الإحصائيات ترسم مخططات التحميل التدريجي عبر fl_chart + Analytics']},
+    security:{en:['Firebase Authentication for secure sign-in','Firestore security rules scope data per authenticated user','Offline-first caching with controlled sync windows','GCC low-latency provisioning — Firebase Dammam (me-central2)'],
+              ar:['Firebase Authentication لتسجيل دخول آمن','قواعد أمان Firestore تقييد البيانات حسب المستخدم الموثّق','تخزين محلي Offline-first مع نوافذ مزامنة مضبوطة','استضافة منخفضة زمن الاستجابة للخليج — Firebase الدمام (me-central2)']} },
+  { id:'minestore', cat:'dotnet', featured:true, repo:'https://github.com/Khalid341/mini-store',
+    title:{en:'Mini-Store',ar:'Mini-Store'},
+    sub:{en:'E-Commerce Engine',ar:'محرك متجر إلكتروني'},
+    desc:{en:'E-commerce platform with dynamic catalog browsing, inventory tracking, and checkout workflows (Arabic-first catalog).',ar:'منصة تجارة إلكترونية بتصفح كتالوج ديناميكي وتتبع مخزون ومسارات دفع (كتالوج عربي أولاً).'},
+    stack:['C#','ASP.NET Core MVC','EF Core','SQL Server','Razor Views'],
+    layers:{en:['Presentation — Razor storefront (Index / Products / Details)','Controllers — HomeController & catalog routing','Domain — categories, products, inventory, cart/checkout flow','Data — EF Core → MS SQL Server (production target)'],
+            ar:['العرض — واجهة متجر Razor (الرئيسية / المنتجات / التفاصيل)','المتحكّمات — HomeController ومسارات الكتالوج','النطاق — تصنيفات، منتجات، مخزون، سلة ودفع','البيانات — EF Core ← MS SQL Server (هدف الإنتاج)']},
+    flow:{en:['Customer browses dynamic catalog (category → product → details)','Inventory service checks stock levels during add-to-cart','Checkout workflow validates order + totals','Order persisted through EF Core to SQL Server','Admin manages catalog & inventory through role-gated views'],
+          ar:['العميل يتصفح الكتالوج الديناميكي (تصنيف ← منتج ← تفاصيل)','خدمة المخزون تفحص مستويات المخزون عند الإضافة للسلة','مسار الدفع يتحقق من القيم والمجموعات','يُحفظ الطلب عبر EF Core إلى SQL Server','الإدارة تدير الكتالوج والمخزون عبر واجهات محمية بالأدوار']},
+    security:{en:['Server-side model validation on every form','Anti-forgery token protection on POST actions','Parameterized queries via EF Core (SQL-injection safe)','Roadmap: Identity + role-based admin access'],
+              ar:['تحقق النماذج من جانب الخادم على كل نموذج','حماية الإجراءات بتوكنات anti-forgery','استعلامات مُعامَلة عبر EF Core (آمنة من حقن SQL)','خارطة طريق: Identity + صلاحيات إدارة بالأدوار']} },
+  { id:'care', cat:'ui', featured:false, repo:'https://github.com/Khalid341/care-capstone',
+    title:{en:'Care — Graduation Project',ar:'Care — مشروع التخرج'},
+    sub:{en:'Education & Care Platform',ar:'منصة تعليم ورعاية'},
+    desc:{en:'Developed a platform for education and care for children and students from primary to secondary school.',ar:'تطوير منصة للتعليم والرعاية للأطفال والطلاب من المرحلة الابتدائية إلى الثانوية.'},
+    stack:['Graduation Project','Web Platform','Full-Stack'] },
+  { id:'note', cat:'mobile', featured:false, repo:'https://github.com/Khalid341/Note-App-Flutter',
+    title:{en:'Note App',ar:'تطبيق الملاحظات'},
+    sub:{en:'Cross-Platform Note-Taking',ar:'ملاحظات متعدد المنصات'},
+    desc:{en:'A simple, fast note-taking app built with Flutter for everyday capture and organization.',ar:'تطبيق ملاحظات سريع وبسيط مبني بـ Flutter للالتقاط والتنظيم اليومي.'},
+    stack:['Flutter','Dart','Mobile'] },
+  { id:'vocab', cat:'mobile', featured:false, repo:'https://github.com/Khalid341/vocab-trainer',
+    title:{en:'Vocabulary Learn Any Time',ar:'مفردات في أي وقت'},
+    sub:{en:'Scheduled Vocabulary Trainer',ar:'متتبع مفردات مجدول'},
+    desc:{en:'Learn English on a schedule — receive notification reminders with the words you choose, at the time you want.',ar:'تعلم الإنجليزية حسب جدول — إشعارات بالمفردات التي تختارها في الوقت الذي تريده.'},
+    stack:['Flutter','Dart','Notifications'] },
+  { id:'portfolio', cat:'ui', featured:false, repo:'https://github.com/Khalid341/myportfolio',
+    title:{en:'Personal Portfolio',ar:'البورتفوليو الشخصي'},
+    sub:{en:'This Site',ar:'هذا الموقع'},
+    desc:{en:'A dark, bilingual (EN/AR) creative developer portfolio with an interactive terminal, project filters, and architecture modals.',ar:'بورتفوليو مطور داكن ولغتين (عربي/إنجليزي) بطرفية تفاعلية وفلاتر مشاريع ونوافذ فحص البنية.'},
+    stack:['HTML','CSS','JavaScript','Vercel'] }
+];
+
+var CAT_LABEL = {
+  dotnet:{ en:'Full-Stack .NET', ar:'دوت نت الكامل' },
+  mobile:{ en:'Mobile (Flutter)', ar:'الجوال (Flutter)' },
+  ui:    { en:'UI & Web', ar:'واجهات وويب' }
+};
+
+/* =========================================================
+   Renderers
+========================================================= */
+function applyStatic(){
+  document.querySelectorAll('[data-i18n]').forEach(function(el){ el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(el){ el.placeholder = t(el.dataset.i18nPh); });
+}
+
+function renderEdu(){
+  document.getElementById('eduGrid').innerHTML = EDU.map(function(e,i){
+    return '<div class="edu-card glass reveal" style="transition-delay:'+(i*80)+'ms">'
+      + '<span class="date">'+ e.date[state.lang] +'</span>'
+      + '<h3>'+ e.title[state.lang] +'</h3>'
+      + '<p>'+ e.org[state.lang] +'</p>'
+      + '<span class="gpa">'+ e.gpa[state.lang] +'</span></div>';
+  }).join('');
+}
+
+function renderCerts(){
+  document.getElementById('certsGrid').innerHTML = CERTS.map(function(c,i){
+    return '<div class="cert glass reveal" style="transition-delay:'+(i*70)+'ms">'
+      + '<span class="ic">'+ c.ic +'</span><div><b>'+ c.b[state.lang] +'</b>'
+      + '<span>'+ c.s[state.lang] +'</span></div></div>';
+  }).join('');
+}
+
+function renderSkills(){
+  document.getElementById('skillsGrid').innerHTML = SKILLS.map(function(s,i){
+    return '<div class="skill-card glass reveal" style="transition-delay:'+(i*70)+'ms">'
+      + '<h3>'+ s.title[state.lang] +'</h3><div class="skill-tags">'
+      + s.items.map(function(it){ return '<span class="tag">'+ it +'</span>'; }).join('')
+      + '</div></div>';
+  }).join('');
+}
+
+function renderExperience(){
+  document.getElementById('expTimeline').innerHTML = EXPERIENCE.map(function(x,i){
+    return '<div class="tl-item reveal" style="transition-delay:'+(i*80)+'ms">'
+      + '<span class="date">'+ x.date[state.lang] +'</span>'
+      + '<h3>'+ x.role[state.lang] +'</h3>'
+      + '<ul>'+ x.bullets.map(function(b){ return '<li>'+ b[state.lang] +'</li>'; }).join('') +'</ul></div>';
+  }).join('');
+}
+
+function renderProjects(){
+  var f = state.filter;
+  var list = PROJECTS.filter(function(p){ return f === 'all' || p.cat === f; });
+  document.getElementById('projGrid').innerHTML = list.map(function(p,i){
+    var cat = CAT_LABEL[p.cat][state.lang];
+    return '<article class="proj-card glass tilt reveal" style="transition-delay:'+(i*80)+'ms">'
+      + '<span class="p-cat">'+ cat +'</span>'
+      + '<h3>'+ p.title[state.lang] +'</h3>'
+      + '<div class="p-sub">'+ p.sub[state.lang] +'</div>'
+      + '<p class="p-desc">'+ p.desc[state.lang] +'</p>'
+      + '<div class="p-stack">'+ p.stack.map(function(s){ return '<span class="tag">'+ s +'</span>'; }).join('') +'</div>'
+      + '<div class="p-actions">'
+      + (p.featured ? '<button class="btn btn-primary" data-inspect="'+ p.id +'">'+ t('proj.inspect') +'</button>' : '')
+      + '<a class="btn btn-ghost" href="'+ p.repo +'" target="_blank" rel="noopener">'+ t('proj.repo') +'</a>'
+      + '</div></article>';
+  }).join('');
+  bindTiltAll(); observeReveals();
+}
+
+function renderAll(){
+  applyStatic();
+  renderEdu(); renderCerts(); renderSkills(); renderExperience(); renderProjects();
+  observeReveals();
+}
+
+function setLang(l){
+  state.lang = l;
+  document.documentElement.lang = l;
+  document.documentElement.dir = (l === 'ar') ? 'rtl' : 'ltr';
+  document.getElementById('langBtn').textContent = (l === 'en') ? 'عربي' : 'EN';
+  try { localStorage.setItem('site-lang', l); } catch(e){}
+  renderAll();
+}
+
+/* =========================================================
+   Terminal
+========================================================= */
+var termOut = document.getElementById('termOut');
+var termInput = document.getElementById('termInput');
+
+function termLine(text, cls){
+  var p = document.createElement('p');
+  p.className = cls || 't-out';
+  p.textContent = text;
+  termOut.appendChild(p);
+  termOut.scrollTop = termOut.scrollHeight;
+}
+
+function termWelcome(){
+  termOut.innerHTML = '';
+  termLine(t('term.welcome1'), 't-hi');
+  termLine(t('term.welcome2'), 't-out');
+}
+
+function runCommand(raw){
+  var cmd = String(raw || '').trim().toLowerCase();
+  if (!cmd) return;
+  termLine('$ ' + raw, 't-cmd');
+  var L = state.lang;
+  if (cmd === 'help'){ t('term.help').forEach(function(s){ termLine(s, 't-out'); }); return; }
+  if (cmd === 'whoami'){ t('term.whoami').forEach(function(s,i){ termLine(s, i===0 ? 't-hi' : (i===2 ? 't-ind' : 't-out')); }); return; }
+  if (cmd === 'stack'){ t('term.stack').forEach(function(s){ termLine(s, 't-out'); }); return; }
+  if (cmd === 'projects'){ t('term.projects').forEach(function(s){ termLine(s, 't-out'); }); return; }
+  if (cmd === 'contact'){ t('term.contact').forEach(function(s){ termLine(s, 't-out'); }); return; }
+  if (cmd === 'clear'){ termOut.innerHTML = ''; return; }
+  termLine(t('term.unknown') + ': ' + cmd, 't-warn');
+  termLine(t('term.unknown2'), 't-out');
+}
+
+document.getElementById('termForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  runCommand(termInput.value);
+  termInput.value = '';
+});
+document.querySelectorAll('.chip').forEach(function(chip){
+  chip.addEventListener('click', function(){ runCommand(chip.dataset.cmd); });
+});
+document.getElementById('termCollapse').addEventListener('click', function(){
+  var term = document.getElementById('term');
+  term.classList.toggle('collapsed');
+  this.textContent = term.classList.contains('collapsed') ? '+' : '–';
+});
+/* Draggable terminal */
+(function(){
+  var bar = document.getElementById('termBar');
+  var term = document.getElementById('term');
+  var dragging = false, sx = 0, sy = 0, tx = 0, ty = 0;
+  bar.addEventListener('pointerdown', function(e){
+    if (e.target.tagName === 'BUTTON') return;
+    dragging = true; sx = e.clientX - tx; sy = e.clientY - ty;
+    bar.setPointerCapture(e.pointerId);
+  });
+  bar.addEventListener('pointermove', function(e){
+    if (!dragging) return;
+    tx = e.clientX - sx; ty = e.clientY - sy;
+    var maxX = window.innerWidth / 2, maxY = window.innerHeight / 2;
+    tx = Math.max(-maxX, Math.min(maxX, tx));
+    ty = Math.max(-maxY, Math.min(maxY, ty));
+    term.style.transform = 'translate(' + tx + 'px,' + ty + 'px)';
+  });
+  bar.addEventListener('pointerup', function(){ dragging = false; });
+  bar.addEventListener('pointercancel', function(){ dragging = false; });
+})();
+
+/* =========================================================
+   Filters + Modal
+========================================================= */
+document.getElementById('filters').addEventListener('click', function(e){
+  var btn = e.target.closest('.filter');
+  if (!btn) return;
+  document.querySelectorAll('.filter').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  state.filter = btn.dataset.filter;
+  var grid = document.getElementById('projGrid');
+  grid.classList.add('filtering');
+  setTimeout(function(){
+    renderProjects();
+    grid.classList.remove('filtering');
+  }, 170);
+});
+
+var modal = document.getElementById('archModal');
+document.getElementById('projGrid').addEventListener('click', function(e){
+  var btn = e.target.closest('[data-inspect]');
+  if (!btn) return;
+  var p = PROJECTS.find(function(x){ return x.id === btn.dataset.inspect; });
+  if (!p) return;
+  document.getElementById('mCat').textContent = CAT_LABEL[p.cat][state.lang];
+  document.getElementById('mTitle').textContent = p.title[state.lang];
+  document.getElementById('mSub').textContent = p.sub[state.lang];
+  document.getElementById('mLayers').innerHTML = p.layers[state.lang].map(function(s){
+    return '<div class="layer">'+ s +'</div>';
+  }).join('');
+  document.getElementById('mFlow').innerHTML = p.flow[state.lang].map(function(s,i){
+    return '<div class="flow-step"><span class="flow-num">0'+ (i+1) +'</span><span class="txt">'+ s +'</span></div>';
+  }).join('');
+  document.getElementById('mSecurity').innerHTML = p.security[state.lang].map(function(s){
+    return '<li>'+ s +'</li>';
+  }).join('');
+  document.getElementById('mStack').innerHTML = p.stack.map(function(s){
+    return '<span class="tag">'+ s +'</span>';
+  }).join('');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+});
+function closeModal(){
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('modalClose').addEventListener('click', closeModal);
+modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
+
+/* =========================================================
+   Copy email + toast
+========================================================= */
+function showToast(msg){
+  var el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(el._timer);
+  el._timer = setTimeout(function(){ el.classList.remove('show'); }, 2600);
+}
+document.getElementById('copyEmailBtn').addEventListener('click', function(){
+  var email = 'alhrbi341@gmail.com';
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(email).then(function(){ showToast(t('toast.copied')); })
+      .catch(function(){ fallbackCopy(email); });
+  } else { fallbackCopy(email); }
+});
+function fallbackCopy(text){
+  var ta = document.createElement('textarea');
+  ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); showToast(t('toast.copied')); }
+  catch(e){ showToast(text); }
+  ta.remove();
+}
+
+/* =========================================================
+   Spotlight / Tilt / Reveal / Menu
+========================================================= */
+document.addEventListener('mousemove', function(e){
+  var r = document.getElementById('spotlight');
+  r.style.setProperty('--mx', e.clientX + 'px');
+  r.style.setProperty('--my', e.clientY + 'px');
+});
+
+var hoverCapable = window.matchMedia && window.matchMedia('(hover:hover)').matches
+  && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches);
+function bindTilt(el){
+  if (!hoverCapable) return;
+  el.addEventListener('mousemove', function(e){
+    var r = el.getBoundingClientRect();
+    var x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+    el.style.transform = 'perspective(750px) rotateY(' + ((x - .5) * 7).toFixed(2) + 'deg) rotateX(' + ((.5 - y) * 7).toFixed(2) + 'deg) translateY(-3px)';
+  });
+  el.addEventListener('mouseleave', function(){ el.style.transform = ''; });
+}
+function bindTiltAll(){ document.querySelectorAll('.tilt').forEach(bindTilt); }
+
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(en){
+    if (en.isIntersecting){ en.target.classList.add('visible'); io.unobserve(en.target); }
+  });
+}, { threshold: 0.12 });
+function observeReveals(){ document.querySelectorAll('.reveal:not(.visible)').forEach(function(el){ io.observe(el); }); }
+
+document.getElementById('menuBtn').addEventListener('click', function(){
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('#navLinks a').forEach(function(a){
+  a.addEventListener('click', function(){ document.getElementById('navLinks').classList.remove('open'); });
+});
+
+/* =========================================================
+   Boot
+========================================================= */
+document.getElementById('langBtn').addEventListener('click', function(){
+  setLang(state.lang === 'en' ? 'ar' : 'en');
+});
+try {
+  var saved = localStorage.getItem('site-lang');
+  if (saved === 'ar' || saved === 'en') state.lang = saved;
+} catch(e){}
+document.documentElement.lang = state.lang;
+document.documentElement.dir = (state.lang === 'ar') ? 'rtl' : 'ltr';
+document.getElementById('langBtn').textContent = (state.lang === 'en') ? 'عربي' : 'EN';
+renderAll();
+termWelcome();
+bindTiltAll();
+observeReveals();
+</script>
+</body>
+</html>
