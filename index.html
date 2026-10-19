@@ -235,9 +235,8 @@ footer a:hover{text-decoration:underline}
     <div class="hero-metrics reveal" style="transition-delay:.46s">
       <div class="metric"><b>4.67</b><span data-i18n="met.gpa">B.Sc. First-Class GPA (/5.0)</span></div>
       <div class="metric"><b>25+</b><span data-i18n="met.repos">Public Repositories</span></div>
-      <div class="metric"><b>3</b><span data-i18n="met.flag">Flagship Products</span></div>
-      <div class="metric"><b>2026</b><span data-i18n="met.tuwaiq">Tuwaiq Academy Alumni</span></div>
-    </div>
+<div class="metric"><b>3</b><span data-i18n="met.flag">Flagship Products</span></div>
+</div>
   </div>
 
   <!-- Terminal -->
@@ -401,7 +400,6 @@ var I18N = {
   'met.gpa':       { en: 'B.Sc. First-Class GPA (/5.0)', ar: 'معدل البكالوريوس مع مرتبة الشرف (/5.0)' },
   'met.repos':     { en: 'Public Repositories', ar: 'مستودعات عامة' },
   'met.flag':      { en: 'Flagship Products',   ar: 'منتجات رئيسية' },
-  'met.tuwaiq':    { en: 'Tuwaiq Academy Alumni', ar: 'خريج أكاديمية طويق' },
   'about.tag':     { en: 'About',      ar: 'عني' },
   'about.title':   { en: 'About Me',   ar: 'نبذة عني' },
   'about.p':       { en: 'Securing a full-time Software Engineer position where my knowledge, skills, and abilities are effectively utilized — building enterprise .NET systems and cross-platform mobile apps. First-Class Honors graduate, open to on-site, hybrid & remote roles.', ar: 'أسعى لشغل وظيفة مهندس برمجيات بدوام كامل تُوظَّف فيها مهاراتي في بناء أنظمة .NET المؤسسية والتطبيقات متعددة المنصات — خريج بتقدير الشرف الأول، ومتاح للعمل الميداني والهجين وعن بُعد.' },
@@ -715,7 +713,12 @@ var PROJECTS = [
     title:{en:'Quiz Master',ar:'صانع الاختبارات'},
     sub:{en:'ASP.NET Core API + Flutter',ar:'ASP.NET Core API + Flutter'},
     desc:{en:'Full-stack quiz platform — ASP.NET Core Web API backend with a Flutter mobile client.',ar:'منصة اختبارات متكاملة — ASP.NET Core Web API مع تطبيق Flutter.'},
-    stack:['ASP.NET Core Web API','Flutter','REST'] }
+    stack:['ASP.NET Core Web API','Flutter','REST'] },
+  { id:'sqlite', cat:'mobile', featured:false, repo:'https://github.com/Khalid341/flutter_sqlite_example',
+    title:{en:'Flutter SQLite Example',ar:'مثال SQLite بـ Flutter'},
+    sub:{en:'Local CRUD with sqflite',ar:'عمليات CRUD محلية بـ sqflite'},
+    desc:{en:'A Flutter record-keeping example with local SQLite persistence — create, edit, and manage records offline via a dedicated helper layer.',ar:'مثال Flutter لحفظ السجلات محليًا عبر SQLite — إضافة وتعديل وإدارة السجلات دون اتصال عبر طبقة مساعدة مخصصة.'},
+    stack:['Flutter','Dart','SQLite','Offline'] }
 ];
 
 var CAT_LABEL = {
